@@ -1,0 +1,17 @@
+
+:root {
+    --color-gold: #bdae82;
+    --color-black: #000000;
+    --font-big: 'Merriweather', serif;
+    --font-small: 'Inter', sans-serif;
+    --font-size-big: 60px;
+    --font-size-small: 20px;
+}
+
+
+h1 {
+    font-family: var(--font-big);
+    font-size: var(--font-size-big);
+    font-weight: bold;
+    color: var(--color-gold);
+}
