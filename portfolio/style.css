@@ -6,6 +6,7 @@
     --font-big: 'Merriweather', serif;
     --font-small: 'Inter', sans-serif;
     --font-size-big: 60px;
+    --font-size-medium: 40px;
     --font-size-small: 20px;
 }
 
@@ -43,13 +44,101 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
-
+.container-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
 .container-fluid {
     /* Use fixed width for first task (portfolio #1) */
     /*max-width: 1440px;*/
     width: 1440px;
     margin: 0 auto;
 }
+
+.header-background{
+    background: url("./assets/img/hero.jpg") no-repeat center 0;
+}
+
+.hero {
+    background: url("./assets/img/hero.jpg") no-repeat center -90px;
+    height: 820px;
+    padding-top: 160px;
+    padding-left: 80px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+h1.section-title {
+    font-family: var(--font-big);
+    font-size: var(--font-size-big);
+    line-height: calc(var(--font-size-big) * 2);
+    margin: 0;
+}
+
+.header-wrapper {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 60px;
+    overflow: hidden;
+    background-image: linear-gradient(to top, var(--color-black) calc(var(--font-size-medium) - 1px),
+        var(--color-gold) calc(var(--font-size-medium) - 1px),
+        var(--color-gold) calc(var(--font-size-medium) + 1px),
+        var(--color-black) calc(var(--font-size-medium) + 1px));
+}
+
+.header-wrapper h2.section-title {
+    width: fit-content;
+    padding: 0 20px;
+    margin: 0 auto;
+    font-family: var(--font-big);
+    font-size: var(--font-size-medium);
+    line-height: calc(var(--font-size-medium) * 2);
+    color: var(--color-gold);
+    background-color: var(--color-black);
+    text-align: center;
+}
+
+.hero p {
+    width: 470px;
+    line-height: 40px;
+    margin: 10px 0;
+}
+
+.section {
+    padding-top: 100px;
+}
+
+.skill-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.skill-card {
+    width: 320px;
+    height: 240px;
+}
+
+.button-solid {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    border: 0;
+    font-family: inherit;
+    font-size: var(--font-size-small);
+    width: 220px;
+    height: 55px;
+}
+
+.hire-me-button {
+    margin-top: 15px;
+}
+
+
 
 .nav {
     padding: 20px;
@@ -139,18 +228,61 @@ li.lang {
     mask: url("./assets/svg/logo_unvisited.svg") 50% 50%/contain no-repeat;
 }
 
-.custom-icons:hover {
+.custom-icons.brand:hover {
     /* Background color doesn't work good with transitions, so use filter */
     /*background-color: var(--color-gold);*/
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
 }
 
+/* Not the best way to do it, since it is not semantic*/
+.svg-image {
+    display: block;
+    height: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: var(--color-gold);
+}
 
+.svg-image.camera {
+    width: 62px;
+    -webkit-mask: url("./assets/svg/camera 1.svg") 50% 50%/contain no-repeat;
+    mask: url("./assets/svg/camera 1.svg") 50% 50%/contain no-repeat;
+}
 
-h1 {
-    font-family: var(--font-big);
-    font-size: var(--font-size-big);
+.svg-image.video {
+    width: 60px;
+    -webkit-mask: url("./assets/svg/video 1.svg") 50% 50%/contain no-repeat;
+    mask: url("./assets/svg/video 1.svg") 50% 50%/contain no-repeat;
+}
+
+.svg-image.image {
+    width: 66px;
+    -webkit-mask: url("./assets/svg/image 1.svg") 50% 50%/contain no-repeat;
+    mask: url("./assets/svg/image 1.svg") 50% 50%/contain no-repeat;
+}
+
+.svg-image.mic {
+    width: 32px;
+    -webkit-mask: url("./assets/svg/mic 1.svg") 50% 50%/contain no-repeat;
+    mask: url("./assets/svg/mic 1.svg") 50% 50%/contain no-repeat;
+}
+
+h3.skill-header {
+    margin-top: 50px;
+    text-align: center;
+    font-size: var(--font-size-small);
+    line-height: calc(var(--font-size-small) * 2);
     font-weight: bold;
-    color: var(--color-gold);
+}
+
+p.skill-description {
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    width: 280px;
+    height: 72px;
+    font-size: 18px;
+    line-height: 36px;
 }
