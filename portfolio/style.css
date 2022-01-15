@@ -2,11 +2,150 @@
 :root {
     --color-gold: #bdae82;
     --color-black: #000000;
+    --color-default: #fff;
     --font-big: 'Merriweather', serif;
     --font-small: 'Inter', sans-serif;
     --font-size-big: 60px;
     --font-size-small: 20px;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    font-family: var(--font-small);
+    font-size: var(--font-size-small);
+    background-color: var(--color-black);
+    color: var(--color-default);
+}
+
+.active {
+    color: var(--color-gold);
+}
+
+.container {
+    /* Use fixed width for first task (portfolio #1) */
+    /*max-width: 1440px;*/
+    width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.container-fluid {
+    /* Use fixed width for first task (portfolio #1) */
+    /*max-width: 1440px;*/
+    width: 1440px;
+    margin: 0 auto;
+}
+
+.nav {
+    padding: 20px;
+}
+
+.container a,
+.container-fluid a {
+    text-decoration: none;
+    transition: 0.3s;
+    color: var(--color-default);
+}
+
+.container a:hover,
+.container-fluid a:hover {
+    color: var(--color-gold);
+}
+
+.nav .nav-list{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+.nav-item {
+    line-height: 50px;
+    padding: 0 15.5px;
+}
+
+.nav-item.nav-brand{
+    margin-right: auto;
+    margin-left: 0;
+    padding: 0;
+}
+
+a.nav-link {
+
+}
+
+/*a.nav-link:hover {*/
+/*    display: inline-block;*/
+/*    background-color: #F8F6F1;*/
+/*    border-radius: 5px;*/
+/*    color: #000000;*/
+/*    transition: 0.3s;*/
+/*}*/
+
+.clickable {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.clickable.active:hover{
+    color: var(--color-default);
+}
+
+.clickable:hover{
+    color: var(--color-gold);
+}
+
+li.lang {
+    padding-left: 17px;
+    padding-right: 0;
+    font-weight: bold;
+}
+
+.lang-splitter {
+    display: inline-block;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+.custom-icons {
+    vertical-align: bottom;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-default);
+    transition-property: filter;
+    transition-duration: 0.3s;
+}
+
+.custom-icons.brand {
+    -webkit-mask: url("./assets/svg/logo_unvisited.svg") 50% 50%/contain no-repeat;
+    mask: url("./assets/svg/logo_unvisited.svg") 50% 50%/contain no-repeat;
+}
+
+.custom-icons:hover {
+    /* Background color doesn't work good with transitions, so use filter */
+    /*background-color: var(--color-gold);*/
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
 
 
 h1 {
