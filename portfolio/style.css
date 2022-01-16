@@ -84,6 +84,11 @@ body {
     mask: url("./assets/svg/logo_unvisited.svg") 50% 50%/contain no-repeat;
 }
 
+.custom-icons.play {
+    -webkit-mask: url("./assets/svg/Play_Unvisited.svg") 50% 50%/contain no-repeat;
+    mask: url("./assets/svg/Play_Unvisited.svg") 50% 50%/contain no-repeat;
+}
+
 .custom-icons.brand:hover {
     /* Background color doesn't work good with transitions, so use filter */
     /*background-color: var(--color-gold);*/
@@ -318,4 +323,22 @@ p.skill-description {
     width: 450px;
     height: 560px;
     object-fit: cover;
+}
+
+.video-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container .play-button {
+    position: absolute;
+    width: 129.86px;
+    height: 130px;
+}
+
+.play-button:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
