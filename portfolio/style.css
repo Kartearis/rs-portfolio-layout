@@ -493,12 +493,29 @@ input:-webkit-autofill:active {
     padding: 50px 20px;
 }
 
+.copyright-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    padding-right: 13px;
+}
+
+.container-footer div {
+    line-height: 50px;
+}
+
+.container-footer .rs-link-container {
+    padding-left: 4px;
+}
+
 .social-networks {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 20px;
     height: 50px;
 }
@@ -507,4 +524,5 @@ input:-webkit-autofill:active {
     width: 32px;
     height: 32px;
 }
+
 
