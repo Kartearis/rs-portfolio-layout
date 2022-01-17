@@ -138,6 +138,7 @@ li.lang {
     padding-left: 17px;
     padding-right: 0;
     font-weight: bold;
+    letter-spacing: 0.33px;
 }
 
 .lang-splitter {
@@ -162,7 +163,7 @@ li.lang {
 .hero p {
     width: 470px;
     line-height: 40px;
-    margin: 10px 0;
+    margin: 10px 0 25px 0;
 }
 
 h1.section-title {
@@ -173,6 +174,7 @@ h1.section-title {
 }
 
 .button-solid {
+    display: block;
     background-color: var(--color-gold);
     color: var(--color-black);
     border: 0;
@@ -184,6 +186,7 @@ h1.section-title {
 }
 
 .button-outline {
+    display: block;
     background-color: var(--color-black);
     color: var(--color-gold);
     border: 2px solid var(--color-gold);
@@ -202,8 +205,9 @@ h1.section-title {
     color: var(--color-default);
 }
 
-.hire-me-button {
-    margin-top: 15px;
+.button-centered {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section {
@@ -255,6 +259,7 @@ h3.skill-header {
     font-size: var(--font-size-small);
     line-height: calc(var(--font-size-small) * 2);
     font-weight: bold;
+    letter-spacing: 0.33px;
 }
 
 p.skill-description {
@@ -341,4 +346,52 @@ p.skill-description {
 .play-button:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
+}
+
+.price-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 25px;
+}
+.price-card {
+    border: 3px solid var(--color-gold);
+    width: 450px;
+    height: 505px;
+    padding: 40px 0;
+}
+
+.price-card h3.price-header {
+    font-family: var(--font-big);
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 56px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.price-card p.price-tag {
+    font-family: var(--font-big);
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 48px;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 0.33px;
+    color: var(--color-gold);
+}
+
+.price-description {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.price-description li {
+    font-size: 18px;
+    line-height: 36px;
 }
