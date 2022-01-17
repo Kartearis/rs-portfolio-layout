@@ -1,4 +1,4 @@
-
+/* TODO: refactor common gaps to variables */
 :root {
     --color-gold: #bdae82;
     --color-black: #000000;
@@ -87,6 +87,26 @@ body {
 .custom-icons.play {
     -webkit-mask: url("./assets/svg/Play_Unvisited.svg") 50% 50%/contain no-repeat;
     mask: url("./assets/svg/Play_Unvisited.svg") 50% 50%/contain no-repeat;
+}
+
+.custom-icons.instagram {
+    -webkit-mask: url("./assets/svg/inst 1.svg") 50% 50%/contain no-repeat;
+    mask: url("./assets/svg/inst 1.svg") 50% 50%/contain no-repeat;
+}
+
+.custom-icons.twitter {
+    -webkit-mask: url("./assets/svg/tw 1.svg") 50% 50%/contain no-repeat;
+    mask: url("./assets/svg/tw 1.svg") 50% 50%/contain no-repeat;
+}
+
+.custom-icons.pinterest {
+    -webkit-mask: url("./assets/svg/pinterest 1.svg") 50% 50%/contain no-repeat;
+    mask: url("./assets/svg/pinterest 1.svg") 50% 50%/contain no-repeat;
+}
+
+.custom-icons.facebook {
+    -webkit-mask: url("./assets/svg/fb 1.svg") 50% 50%/contain no-repeat;
+    mask: url("./assets/svg/fb 1.svg") 50% 50%/contain no-repeat;
 }
 
 .custom-icons.brand:hover {
@@ -187,7 +207,7 @@ h1.section-title {
 
 .button-outline {
     display: block;
-    background-color: var(--color-black);
+    background-color: transparent;
     color: var(--color-gold);
     border: 2px solid var(--color-gold);
     font-family: inherit;
@@ -395,3 +415,96 @@ p.skill-description {
     font-size: 18px;
     line-height: 36px;
 }
+
+.contacts {
+    height: 700px;
+    margin-top: 100px;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-top: 60px;
+    padding-right: 20px;
+    background: url("./assets/img/contacts-bg.jpg") no-repeat center 0;
+    background-size: auto 700px;
+    background-position: center center;
+}
+
+.contacts-form-container {
+    width: 450px;
+    height: 445px;
+    margin-left: auto;
+}
+
+.contacts-form-container h2.section-title {
+    font-family: var(--font-big);
+    font-size: var(--font-size-medium);
+    font-weight: bold;
+    line-height: calc(var(--font-size-medium) * 2);
+    margin: 0 0 40px;
+    color: var(--color-gold);
+}
+
+.contacts-form {
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.contacts-form .input {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid var(--color-gold);
+    color: var(--color-gold);
+    font-family: inherit;
+    font-size: var(--font-size-small);
+    line-height: calc(var(--font-size-small) * 2);
+    padding: 5px 18px;
+}
+
+.contacts-form .input::placeholder{
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--color-gold);
+    transition: background-color 0s ease-in-out 9000s;
+}
+
+.input.textarea {
+    height: 100px;
+    padding-top: 3px;
+    resize: none;
+}
+
+.contacts-button {
+    margin-top: 10px;
+}
+
+.container-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px 20px;
+}
+
+.social-networks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 50px;
+}
+
+.custom-icons.small {
+    width: 32px;
+    height: 32px;
+}
+

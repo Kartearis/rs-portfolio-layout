@@ -140,13 +140,31 @@
                     </div>
                 </div>
             </section>
-            <section class="section contacts-background" id="contacts">
-                <h2 class="section-title">Contact me</h2>
-
+            <section class="section contacts" id="contacts">
+                <div class="contacts-form-container">
+                    <h2 class="section-title">Contact me</h2>
+                    <form class="contacts-form" onsubmit="">
+                        <input class="input" placeholder="E-mail" type="email">
+                        <input class="input" placeholder="Phone" type="tel">
+                        <textarea class="input textarea" placeholder="Message"></textarea>
+                        <button class="button-solid contacts-button">Send message</button>
+                    </form>
+                </div>
             </section>
         </div>
     </main>
-    <footer></footer>
-    <script type="text/javascript" src="index.js"></script>
+    <footer>
+        <div class="container-fluid container-footer">
+            <div>© 2022 github</div>
+            <div>Rolling Scopes School</div>
+            <ul class="social-networks">
+                <li><span class="custom-icons instagram small"></span></li>
+                <li><span class="custom-icons facebook small"></span></li>
+                <li><span class="custom-icons twitter small"></span></li>
+                <li><span class="custom-icons pinterest small"></span></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="index.js"></script>
 </body>
 </html>
