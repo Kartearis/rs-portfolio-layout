@@ -110,8 +110,15 @@ body {
 }
 
 .custom-icons.brand:hover {
+    cursor: pointer;
     /* Background color doesn't work good with transitions, so use filter */
     /*background-color: var(--color-gold);*/
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
+.custom-icons.clickable:hover {
+    cursor: pointer;
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
 }
