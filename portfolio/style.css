@@ -218,10 +218,12 @@ h1.section-title {
 }
 
 .button-solid:hover {
+    cursor: pointer;
     color: var(--color-default);
 }
 
 .button-outline:hover {
+    cursor: pointer;
     color: var(--color-default);
 }
 
@@ -359,11 +361,14 @@ p.skill-description {
 
 .video-container .play-button {
     position: absolute;
+    display: block;
+    border: none;
     width: 129.86px;
     height: 130px;
 }
 
 .play-button:hover {
+    cursor: pointer;
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
 }
