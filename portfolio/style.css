@@ -88,8 +88,7 @@ body {
     width: 50px;
     height: 50px;
     background-color: var(--color-default);
-    transition-property: filter;
-    transition-duration: 0.3s;
+    transition: filter 0.3s, transform 0.3s;
 }
 
 .custom-icons.brand {
@@ -194,6 +193,7 @@ li.lang {
 
     .collapsable {
         display: none;
+        transition: transform 1s;
     }
 
     li.lang {
@@ -213,6 +213,8 @@ li.lang {
         cursor: pointer;
     }
 
+
+
     .collapsable.active{
         display: flex;
         background-color: var(--color-black);
@@ -227,6 +229,40 @@ li.lang {
         width: 620px;
         padding-top: 134px;
         padding-left: 127px;
+        transform: none;
+    }
+
+    .collapsable.pre-active {
+        display: block;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        transform: translateX(620px);
+
+    }
+
+    .collapsable.pre-active-out {
+        display: flex;
+        position: fixed;
+        background-color: var(--color-black);
+        flex-direction: column;
+        justify-content: start;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        gap: 16px;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        transform: translateX(620px);
+        transition: transform 1s,
+        visibility 0s linear 1s,
+        width 0s linear 1s,
+        height 0s linear 1s,
+        overflow 0s linear 1s,
+        z-index 0s linear 1s,
+        padding-top 0s linear 1s,
+        padding-left 0s linear 1s;
     }
 
     .collapsable.active::before{
@@ -264,7 +300,7 @@ li.lang {
     height: 3px;
     background-color: var(--color-default);
     transform: translateY(23px);
-    transition: 0.3s;
+    transition: background-color 0.3s, transform 1s;
 }
 
 .hamburger::before {
@@ -274,7 +310,7 @@ li.lang {
     height: 3px;
     top: -13px;
     background-color: var(--color-default);
-    transition: 0.3s;
+    transition: background-color 0.3s, transform 1s;
 }
 
 .hamburger::after {
@@ -284,7 +320,7 @@ li.lang {
     height: 3px;
     top: 12px;
     background-color: var(--color-default);
-    transition: 0.3s;
+    transition: background-color 0.3s, transform 1s;
 }
 
 .collapse-button:hover .hamburger{
@@ -302,7 +338,6 @@ li.lang {
 
 .collapse-button:hover .hamburger::after {
     background-color: var(--color-gold);
-
 }
 
 .collapse-button.active {
@@ -415,7 +450,7 @@ h1.section-title {
     font-size: var(--font-size-small);
     width: 220px;
     height: 55px;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .button-outline {
@@ -427,7 +462,7 @@ h1.section-title {
     font-size: var(--font-size-small);
     width: 220px;
     height: 55px;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .button-solid:hover {
@@ -435,9 +470,17 @@ h1.section-title {
     color: var(--color-default);
 }
 
+.button-solid:active {
+    transform: scale(0.8);
+}
+
 .button-outline:hover {
     cursor: pointer;
     color: var(--color-default);
+}
+
+.button-outline:active {
+    transform: scale(0.8);
 }
 
 .button-centered {
@@ -656,6 +699,10 @@ p.skill-description {
     cursor: pointer;
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
+}
+
+.play-button:active {
+    transform: scale(0.8);
 }
 
 @media (max-width: 768px) {
