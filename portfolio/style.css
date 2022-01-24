@@ -235,9 +235,13 @@ h1.section-title {
     }
 
     .hero p {
-        width: 390px;
+        width: min(390px, calc(100% - 40px));
         line-height: 24px;
         margin: 20px 0 60px 0;
+    }
+
+    .hero button {
+        max-width: 100%;
     }
 }
 
@@ -475,6 +479,8 @@ p.skill-description {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 705px;
+    overflow: hidden;
 }
 
 .video-container .play-button {
@@ -496,7 +502,6 @@ p.skill-description {
         margin-left: -20px;
         margin-right: -20px;
         height: 418px;
-        overflow: hidden;
     }
     .video-container .video-placeholder {
         width: auto;
@@ -630,6 +635,7 @@ p.skill-description {
 
     .contacts-form-container {
         height: 429px;
+        width: min(450px, calc(100% - 20px));
         margin-left: auto;
         margin-right: auto;
     }
