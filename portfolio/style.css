@@ -370,10 +370,7 @@ p.skill-description {
     }
     .skill-container {
         justify-content: space-around;
-        padding-bottom: 27px;
-        padding-top: 9px;
-        padding-left: 40px;
-        padding-right: 44px;
+        padding: 9px 44px 27px 40px;
         gap: 36px;
     }
     .skill-card {
@@ -436,6 +433,14 @@ p.skill-description {
     margin-bottom: 60px;
 }
 
+@media (max-width: 768px) {
+    .button-container {
+        max-width: 445px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
 .gallery-container {
     display: flex;
     flex-direction: row;
@@ -449,6 +454,20 @@ p.skill-description {
     width: 450px;
     height: 560px;
     object-fit: cover;
+}
+
+@media (max-width: 1439px)
+{
+    .gallery-container {
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 767px) {
+    .gallery-image {
+        width: min(450px, calc(100% - 40px));
+        height: auto;
+    }
 }
 
 .video-container {
@@ -472,18 +491,49 @@ p.skill-description {
     contrast(87%);
 }
 
+@media (max-width: 768px) {
+    .video-container {
+        margin-left: -20px;
+        margin-right: -20px;
+        height: 418px;
+        overflow: hidden;
+    }
+    .video-container .video-placeholder {
+        width: auto;
+        height: 414px;
+        object-fit: cover;
+        object-position: 20px center;
+    }
+
+    .video-container .play-button {
+        width: 64.62px;
+        height: 64.69px;
+    }
+}
+
 .price-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 25px;
+    gap: 50px 25px;
 }
+
 .price-card {
     border: 3px solid var(--color-gold);
     width: 450px;
     height: 505px;
     padding: 40px 0;
+}
+
+@media (max-width: 1439px) {
+    .price-container {
+        justify-content: center;
+    }
+
+    .price-card {
+        width: 420px;
+    }
 }
 
 .price-card h3.price-header {
@@ -566,6 +616,37 @@ p.skill-description {
     padding: 5px 18px;
 }
 
+.contacts-button {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .contacts {
+        margin-top: 80px;
+        background-size: auto 600px;
+        height: 600px;
+        padding-right: 0;
+    }
+
+    .contacts-form-container {
+        height: 429px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contacts-form-container h2.section-title {
+        font-size: var(--font-size-medium-tablet);
+        line-height: calc(var(--font-size-medium-tablet) * 2);
+        text-align: center;
+        color: var(--color-gold);
+    }
+
+    .contacts-button {
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
 .contacts-form .input::placeholder{
     font-family: inherit;
     font-size: inherit;
@@ -586,9 +667,7 @@ input:-webkit-autofill:active {
     resize: none;
 }
 
-.contacts-button {
-    margin-top: 10px;
-}
+
 
 .container-footer {
     display: flex;
