@@ -150,6 +150,15 @@ body {
     justify-content: flex-end;
 }
 
+.collapsable {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
 .nav-item {
     line-height: 50px;
     padding: 0 15.5px;
@@ -159,19 +168,6 @@ body {
     margin-right: auto;
     margin-left: 0;
     padding: 0;
-}
-
-.clickable {
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.clickable.active:hover{
-    color: var(--color-default);
-}
-
-.clickable:hover{
-    color: var(--color-gold);
 }
 
 li.lang {
@@ -186,6 +182,171 @@ li.lang {
     padding-left: 9px;
     padding-right: 9px;
 }
+
+.collapse-button {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        padding: 20px 64px 20px 60px;
+    }
+
+    .collapsable {
+        display: none;
+    }
+
+    li.lang {
+        padding-right: 20px;
+    }
+
+    .lang-splitter {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .collapse-button {
+        display: block;
+    }
+
+    .collapse-button:hover {
+        cursor: pointer;
+    }
+
+    .collapsable.active{
+        display: flex;
+        background-color: var(--color-black);
+        flex-direction: column;
+        justify-content: start;
+        gap: 16px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 620px;
+        padding-top: 134px;
+        padding-left: 127px;
+    }
+
+    .collapsable.active::before{
+        content: "";
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        right: 100%;
+        top: -134px;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .collapsable .nav-item {
+        padding-left: 0;
+        font-size: 35px;
+        line-height: 72.5px;
+    }
+}
+
+@media (max-width: 619px) {
+    .collapsable.active {
+        justify-content: start;
+        padding: 100px 0 0;
+        width: 100vw;
+        align-items: center;
+    }
+    /* Disable blackout on small screens*/
+    .collapsable.active::before {
+        content: none;
+    }
+}
+
+.hamburger {
+    width: 50px;
+    height: 3px;
+    background-color: var(--color-default);
+    transform: translateY(23px);
+    transition: 0.3s;
+}
+
+.hamburger::before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    top: -13px;
+    background-color: var(--color-default);
+    transition: 0.3s;
+}
+
+.hamburger::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    top: 12px;
+    background-color: var(--color-default);
+    transition: 0.3s;
+}
+
+.collapse-button:hover .hamburger{
+    background-color: var(--color-gold);
+}
+
+.collapse-button:hover.active .hamburger{
+    background-color: transparent;
+}
+
+.collapse-button:hover .hamburger::before {
+    background-color: var(--color-gold);
+
+}
+
+.collapse-button:hover .hamburger::after {
+    background-color: var(--color-gold);
+
+}
+
+.collapse-button.active {
+    position: fixed;
+    top: 20px;
+    right: 64px;
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+}
+
+.hamburger.active,
+.active .hamburger{
+    background-color: transparent;
+}
+
+.hamburger.active::before,
+.active .hamburger::before{
+    transform: translateX(-10px) translateY(13px) rotate(45deg);
+    width: 70.7px;
+}
+
+.hamburger.active::after,
+.active .hamburger::after{
+    transform: translateX(-10px) translateY(-12px) rotate(-45deg) ;
+    width: 70.7px;
+}
+
+
+
+.clickable {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.clickable.active:hover{
+    color: var(--color-default);
+}
+
+.clickable:hover{
+    color: var(--color-gold);
+}
+
+
 
 .header-background{
     background: url("./assets/img/hero.jpg") no-repeat center 0;
@@ -504,10 +665,10 @@ p.skill-description {
         height: 418px;
     }
     .video-container .video-placeholder {
-        width: auto;
-        height: 414px;
+        width: 812px;
+        height: auto;
         object-fit: cover;
-        object-position: 20px center;
+        object-position: 22px center;
     }
 
     .video-container .play-button {
@@ -734,6 +895,10 @@ input:-webkit-autofill:active {
 
     .copyright-container div:nth-child(2) {
         padding-right: 5px;
+    }
+
+    .copyright-container div:nth-child(3) {
+        padding-right: 2px;
     }
 }
 

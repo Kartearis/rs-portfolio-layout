@@ -1,5 +1,9 @@
 
 console.log(`
+В заголовке отличается отступ в фрагменте en / ru. Это сделано специально, так как в шаблоне блок сделан ассиметрично без какой-либо причины
+`);
+
+console.log(`
 [x] Вёрстка валидная +10
 [x] Вёрстка семантическая +20
     В коде странице присутствуют следующие элементы (указано минимальное количество, может быть больше):
@@ -37,3 +41,26 @@ console.log(`
 
 ИТОГО: 110 / 100
 `);
+
+function toggleCollapsed(button, collapseTarget) {
+    collapseTarget.classList.toggle("active");
+    button.classList.toggle("active");
+}
+
+function onCollapsableClick(event, button, collapseTarget) {
+    if (event.target.classList.contains('nav-link'))
+        toggleCollapsed(button, collapseTarget);
+}
+
+// Set up collapseable menu
+document.addEventListener('DOMContentLoaded', (event) => {
+    let collapseButtons = document.querySelectorAll(".collapse-button");
+    collapseButtons.forEach(button => {
+        let target = button.attributes.getNamedItem("data-collapse-target").value;
+        let targetElement = document.getElementById(target);
+        button.addEventListener("click", x => toggleCollapsed(button, targetElement));
+        targetElement.addEventListener("click", ev => onCollapsableClick(ev, button, targetElement));
+    });
+
+});
+
