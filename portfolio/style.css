@@ -25,10 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-right: 0;
-    margin-left: 0;
+    margin: 0;
     font-family: var(--font-small);
     font-size: var(--font-size-small);
     background-color: var(--color-black);
@@ -184,6 +181,7 @@ li.lang {
 
 .collapse-button {
     display: none;
+    z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -238,7 +236,6 @@ li.lang {
         height: 0;
         overflow: hidden;
         transform: translateX(620px);
-
     }
 
     .collapsable.pre-active-out {
@@ -277,6 +274,7 @@ li.lang {
 
     .collapsable .nav-item {
         padding-left: 0;
+        padding-right: 0;
         font-size: 35px;
         line-height: 72.5px;
     }
@@ -289,6 +287,32 @@ li.lang {
         width: 100vw;
         align-items: center;
     }
+
+    .collapsable.pre-active-out {
+        display: flex;
+        position: fixed;
+        background-color: var(--color-black);
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        gap: 16px;
+        width: 100vw;
+        height: 0;
+        overflow: hidden;
+        transform: translateX(620px);
+        transition: transform 1s,
+        visibility 0s linear 1s,
+        width 0s linear 1s,
+        height 0s linear 1s,
+        overflow 0s linear 1s,
+        z-index 0s linear 1s,
+        padding-top 0s linear 1s,
+        padding-left 0s linear 1s;
+    }
+
     /* Disable blackout on small screens*/
     .collapsable.active::before {
         content: none;
