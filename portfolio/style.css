@@ -1,4 +1,5 @@
 /* TODO: refactor common gaps to variables */
+/* No point in changing --font-size-medium, since line-heights are not changed */
 :root {
     --color-gold: #bdae82;
     --color-black: #000000;
@@ -7,6 +8,7 @@
     --font-small: 'Inter', sans-serif;
     --font-size-big: 60px;
     --font-size-medium: 40px;
+    --font-size-medium-tablet: 32px;
     --font-size-small: 20px;
 }
 
@@ -39,11 +41,17 @@ body {
 
 .container {
     /* Use fixed width for first task (portfolio #1) */
-    /*max-width: 1440px;*/
-    width: 1440px;
+    max-width: 1440px;
+    /*width: 1440px;*/
     margin: 0 auto;
     padding: 0 20px;
 }
+@media (max-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
 .container-flex {
     display: flex;
     flex-direction: column;
@@ -51,9 +59,14 @@ body {
 }
 .container-fluid {
     /* Use fixed width for first task (portfolio #1) */
-    /*max-width: 1440px;*/
-    width: 1440px;
+    max-width: 1440px;
+    /*width: 1440px;*/
     margin: 0 auto;
+}
+@media (max-width: 768px) {
+    .container-fluid {
+        max-width: 768px;
+    }
 }
 
 .container a,
@@ -177,6 +190,12 @@ li.lang {
 .header-background{
     background: url("./assets/img/hero.jpg") no-repeat center 0;
 }
+@media (max-width: 768px) {
+    .header-background {
+        background-position: -5px -30px;
+        background-size: auto 620px;
+    }
+}
 
 .hero {
     background: url("./assets/img/hero.jpg") no-repeat center -90px;
@@ -198,6 +217,28 @@ h1.section-title {
     font-size: var(--font-size-big);
     line-height: calc(var(--font-size-big) * 2);
     margin: 0;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 500px;
+        background-position: -5px -120px;
+        background-size: auto 620px;
+        padding-top: 78px;
+        padding-left: 60px;
+    }
+
+    h1.section-title {
+        font-size: var(--font-size-medium-tablet);
+        line-height: calc(var(--font-size-medium-tablet) * 2);
+        font-weight: normal;
+    }
+
+    .hero p {
+        width: 390px;
+        line-height: 24px;
+        margin: 20px 0 60px 0;
+    }
 }
 
 .button-solid {
@@ -242,6 +283,11 @@ h1.section-title {
 .section {
     padding-top: 100px;
 }
+@media (max-width: 768px) {
+    .section {
+        padding-top: 80px;
+    }
+}
 
 .header-wrapper {
     width: 50%;
@@ -267,6 +313,22 @@ h1.section-title {
     background-color: var(--color-black);
     text-align: center;
 }
+
+@media (max-width: 768px) {
+    .header-wrapper h2.section-title {
+        font-size: var(--font-size-medium-tablet);
+    }
+
+    .header-wrapper {
+        margin-bottom: 50px;
+    }
+
+    .section#skills .header-wrapper {
+        margin-bottom: 36px;
+    }
+}
+
+
 
 .skill-container {
     display: flex;
@@ -301,6 +363,36 @@ p.skill-description {
     font-size: 18px;
     line-height: 36px;
 }
+
+@media (max-width: 768px) {
+    .section#skills {
+        padding-bottom: 13px;
+    }
+    .skill-container {
+        justify-content: space-around;
+        padding-bottom: 27px;
+        padding-top: 9px;
+        padding-left: 40px;
+        padding-right: 44px;
+        gap: 36px;
+    }
+    .skill-card {
+        width: 300px;
+        height: 224px;
+    }
+
+    h3.skill-header {
+        margin-top: 30px;
+    }
+
+    p.skill-description {
+        height: 44px;
+        line-height: 22px;
+        margin-bottom: 0;
+    }
+}
+
+
 
 /* Not the best way to do it, since it is not semantic*/
 .svg-image {
