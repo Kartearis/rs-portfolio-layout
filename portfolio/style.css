@@ -153,6 +153,7 @@ body {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+    list-style: none;
 }
 
 .nav-item {
