@@ -1,7 +1,5 @@
 
-console.log(`
-В заголовке отличается отступ в фрагменте en / ru. Это сделано специально, так как в шаблоне блок сделан ассиметрично без какой-либо причины
-`);
+import * as Translation from './assets/translation/translate.js';
 
 console.log(`
 - [x] Вёрстка соответствует макету. Ширина экрана 768px +48
@@ -60,9 +58,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
     collapseButtons.forEach(button => {
         let target = button.attributes.getNamedItem("data-collapse-target").value;
         let targetElement = document.getElementById(target);
-        button.addEventListener("click", x => toggleCollapsed(button, targetElement));
+        button.addEventListener("click", _ => toggleCollapsed(button, targetElement));
         targetElement.addEventListener("click", ev => onCollapsableClick(ev, button, targetElement));
     });
+});
 
+function switchLanguage(event) {
+    let element = event.target;
+    if (element.classList.contains('active'))
+        return;
+    let translationTags = document.querySelectorAll("[data-translation-tag]");
+    translationTags.forEach(el => {if (el !== element) el.classList.remove('active');});
+    element.classList.add('active');
+    Translation.translateTo(element.attributes['data-translation-tag'].value);
+}
+
+//Set up translation
+document.addEventListener('DOMContentLoaded', (event) => {
+    let translationTags = document.querySelectorAll("[data-translation-tag]");
+    for (let element of translationTags)
+        element.addEventListener('click', switchLanguage);
 });
 

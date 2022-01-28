@@ -399,7 +399,7 @@ li.lang {
 }
 
 .clickable.active:hover{
-    color: var(--color-default);
+    /*color: var(--color-default);*/
 }
 
 .clickable:hover{
