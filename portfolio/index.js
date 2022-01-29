@@ -80,3 +80,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
         element.addEventListener('click', switchLanguage);
 });
 
+var currentTheme = "night";
+
+function toggleTheme() {
+    if (currentTheme === "night")
+        currentTheme = "day";
+    else currentTheme = "night";
+    document.getElementById("theme").attributes['href'].value = `./assets/themes/${currentTheme}.css`;
+}
+
+//Set up theme toggling
+document.addEventListener('DOMContentLoaded', (event) => {
+    let themeIcon = document.querySelector(".theme-icon");
+    themeIcon.addEventListener('click', toggleTheme);
+});
+
