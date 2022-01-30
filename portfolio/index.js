@@ -95,3 +95,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
     themeIcon.addEventListener('click', toggleTheme);
 });
 
+function reloadImages(event) {
+    let images = document.querySelectorAll("img.gallery-image");
+    let season = event.target.attributes['data-selector-id'].value;
+    for (let image of images)
+    {
+        image.src = image.src.replace(/winter|autumn|summer|spring/, season);
+    }
+    let buttons = document.querySelectorAll("button[data-selector-id]");
+    for (let button of buttons)
+    {
+        if (button !== event.target) {
+            button.classList.remove('button-solid');
+            button.classList.add('button-outline');
+        }
+        else {
+            button.classList.remove('button-outline');
+            button.classList.add('button-solid');
+        }
+    }
+}
+
+//Set up image selector
+document.addEventListener('DOMContentLoaded', (event) => {
+    let buttons = document.querySelectorAll("button[data-selector-id]");
+    buttons.forEach(x => x.addEventListener('click', reloadImages));
+});
+
