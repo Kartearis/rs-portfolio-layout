@@ -1,5 +1,6 @@
 
 import * as Translation from './assets/translation/translate.js';
+const storage = window.localStorage;
 
 console.log(`
 - [x] Вёрстка соответствует макету. Ширина экрана 768px +48
@@ -63,6 +64,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+/*
+    Accepts event-like object. It must have target property with reference to dom element
+ */
 function switchLanguage(event) {
     let element = event.target;
     if (element.classList.contains('active'))
@@ -70,7 +74,13 @@ function switchLanguage(event) {
     let translationTags = document.querySelectorAll("[data-translation-tag]");
     translationTags.forEach(el => {if (el !== element) el.classList.remove('active');});
     element.classList.add('active');
+    localStorage.lang = element.attributes['data-translation-tag'].value;
     Translation.translateTo(element.attributes['data-translation-tag'].value);
+}
+
+function setLanguage(languageLabel) {
+    let element = document.querySelector(`[data-translation-tag=${languageLabel}]`);
+    switchLanguage({target: element});
 }
 
 //Set up translation
@@ -86,6 +96,12 @@ function toggleTheme() {
     if (currentTheme === "night")
         currentTheme = "day";
     else currentTheme = "night";
+    storage.theme = currentTheme;
+    document.getElementById("theme").attributes['href'].value = `./assets/themes/${currentTheme}.css`;
+}
+
+function setTheme(themeLabel) {
+    currentTheme = themeLabel;
     document.getElementById("theme").attributes['href'].value = `./assets/themes/${currentTheme}.css`;
 }
 
@@ -95,7 +111,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     themeIcon.addEventListener('click', toggleTheme);
 });
 
+/*
+    Accepts event-like object. It must have target property with reference to dom element
+ */
 function reloadImages(event) {
+    if (event.target.classList.contains("button-solid"))
+        return;
     let images = document.querySelectorAll("img.gallery-image");
     let season = event.target.attributes['data-selector-id'].value;
     for (let image of images)
@@ -114,11 +135,28 @@ function reloadImages(event) {
             button.classList.add('button-solid');
         }
     }
+    storage.galleryId = season;
+}
+
+function setGallerySelector(galleryLabel) {
+    let button = document.querySelector(`button[data-selector-id=${galleryLabel}]`);
+    reloadImages({target: button});
 }
 
 //Set up image selector
 document.addEventListener('DOMContentLoaded', (event) => {
     let buttons = document.querySelectorAll("button[data-selector-id]");
     buttons.forEach(x => x.addEventListener('click', reloadImages));
+});
+
+
+//Set up applying user settings
+document.addEventListener('DOMContentLoaded', (event) => {
+    if (storage.lang !== undefined)
+        setLanguage(storage.lang);
+    if (storage.theme !== undefined)
+        setTheme(storage.theme);
+    if (storage.galleryId !== undefined)
+        setGallerySelector(storage.galleryId);
 });
 
