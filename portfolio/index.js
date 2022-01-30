@@ -1,5 +1,6 @@
 
-import * as Translation from './assets/translation/translate.js';
+import * as Translation from './modules/translate.js';
+import './modules/effects.js';
 const storage = window.localStorage;
 
 console.log(`

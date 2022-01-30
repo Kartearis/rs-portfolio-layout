@@ -524,6 +524,40 @@ h1.section-title {
     margin-right: auto;
 }
 
+button.ripple {
+    position: relative;
+    overflow: hidden;
+    --ripple-y: 50%;
+    --ripple-x: 50%;
+}
+
+button.ripple:active {
+    transform: none;
+}
+
+button.ripple:focus {
+    outline: none;
+}
+
+button.ripple span {
+    position: absolute;
+    top: var(--ripple-y);
+    left: var(--ripple-x);
+    background-color: #fff;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: scale 0.5s ease-out;
+}
+
+@keyframes scale {
+    to {
+        transform: translate(-50%, -50%) scale(20);
+        opacity: 0;
+    }
+}
+
 .section {
     padding-top: 100px;
 }
