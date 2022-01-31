@@ -1,16 +1,6 @@
 /* TODO: refactor common gaps to variables */
 /* No point in changing --font-size-medium, since line-heights are not changed */
-:root {
-    --color-gold: #bdae82;
-    --color-black: #000000;
-    --color-default: #fff;
-    --font-big: 'Merriweather', serif;
-    --font-small: 'Inter', sans-serif;
-    --font-size-big: 60px;
-    --font-size-medium: 40px;
-    --font-size-medium-tablet: 32px;
-    --font-size-small: 20px;
-}
+
 
 * {
     box-sizing: border-box;
@@ -118,6 +108,23 @@ body {
     mask: url("./assets/svg/fb 1.svg") 50% 50%/contain no-repeat;
 }
 
+.custom-icons.theme-icon {
+    width: var(--theme-icon-size);
+    height: var(--theme-icon-size);
+    vertical-align: middle;
+    margin-right: -15.5px;
+    margin-left: calc(15px + calc(45px - var(--theme-icon-size)));
+    -webkit-mask: var(--theme-icon-path) 50% 50%/contain no-repeat;
+    mask: var(--theme-icon-path) 50% 50%/contain no-repeat;
+}
+
+@media (max-width: 768px) {
+    .custom-icons.theme-icon {
+        margin-right: 15px;
+        margin-left: calc(-6px + calc(45px - var(--theme-icon-size)));;
+    }
+}
+
 .custom-icons.brand:hover {
     cursor: pointer;
     /* Background color doesn't work good with transitions, so use filter */
@@ -137,6 +144,7 @@ body {
 }
 
 .nav .nav-list{
+    color: var(--color-default);
     padding: 0;
     margin: 0;
     list-style: none;
@@ -399,7 +407,7 @@ li.lang {
 }
 
 .clickable.active:hover{
-    color: var(--color-default);
+    /*color: var(--color-default);*/
 }
 
 .clickable:hover{
@@ -420,6 +428,7 @@ li.lang {
 
 .hero {
     background: url("./assets/img/hero.jpg") no-repeat center -90px;
+    color: var(--color-default);
     height: 820px;
     padding-top: 160px;
     padding-left: 80px;
@@ -468,8 +477,8 @@ h1.section-title {
 
 .button-solid {
     display: block;
-    background-color: var(--color-gold);
-    color: var(--color-black);
+    background-color: var(--color-button-solid-background);
+    color: var(--color-button-solid-text);
     border: 0;
     font-family: inherit;
     font-size: var(--font-size-small);
@@ -481,8 +490,8 @@ h1.section-title {
 .button-outline {
     display: block;
     background-color: transparent;
-    color: var(--color-gold);
-    border: 2px solid var(--color-gold);
+    color: var(--color-button-outline-text);
+    border: 2px solid var(--color-button-outline-border);
     font-family: inherit;
     font-size: var(--font-size-small);
     width: 220px;
@@ -492,7 +501,8 @@ h1.section-title {
 
 .button-solid:hover {
     cursor: pointer;
-    color: var(--color-default);
+    color: var(--color-button-solid-hover);
+    background-color: var(--color-button-solid-background-hover);
 }
 
 .button-solid:active {
@@ -501,7 +511,8 @@ h1.section-title {
 
 .button-outline:hover {
     cursor: pointer;
-    color: var(--color-default);
+    color: var(--color-button-outline-hover);
+    background-color: var(--color-button-outline-background-hover);
 }
 
 .button-outline:active {
@@ -511,6 +522,40 @@ h1.section-title {
 .button-centered {
     margin-left: auto;
     margin-right: auto;
+}
+
+button.ripple {
+    position: relative;
+    overflow: hidden;
+    --ripple-y: 50%;
+    --ripple-x: 50%;
+}
+
+button.ripple:active {
+    transform: none;
+}
+
+button.ripple:focus {
+    outline: none;
+}
+
+button.ripple span {
+    position: absolute;
+    top: var(--ripple-y);
+    left: var(--ripple-x);
+    background-color: #fff;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: scale 0.5s ease-out;
+}
+
+@keyframes scale {
+    to {
+        transform: translate(-50%, -50%) scale(20);
+        opacity: 0;
+    }
 }
 
 .section {
@@ -909,6 +954,8 @@ input:-webkit-autofill:active {
 
 
 .container-footer {
+    background-color: var(--color-black);
+    color: var(--color-default);
     display: flex;
     flex-direction: row;
     justify-content: space-between;

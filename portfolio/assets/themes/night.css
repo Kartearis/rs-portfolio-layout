@@ -1,0 +1,23 @@
+:root {
+    --color-gold: #bdae82;
+    --color-black: #000000;
+    --color-default: #fff;
+    --color-button-outline-text: var(--color-gold);
+    --color-button-solid-text: #000;
+    --color-button-outline-border: var(--color-gold);
+    --color-button-solid-background: var(--color-gold);
+    --color-button-solid-hover: var(--color-default);
+    --color-button-outline-hover: var(--color-default);
+    --color-button-solid-background-hover: var(--color-button-solid-background);
+    --color-button-outline-background-hover: transparent;
+    --font-big: 'Merriweather', serif;
+    --font-small: 'Inter', sans-serif;
+    --font-size-big: 60px;
+    --font-size-medium: 40px;
+    --font-size-medium-tablet: 32px;
+    --font-size-small: 20px;
+    /*noinspection CssUnknownTarget*/
+    --theme-icon-path: url("./assets/svg/icon_moon.svg");
+    --theme-icon-size: 40px;
+}
+

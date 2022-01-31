@@ -1,0 +1,50 @@
+:root {
+    --color-gold: #bdae82;
+    --color-black: #ffffff;
+    --color-default: #000000;
+    --font-big: 'Merriweather', serif;
+    --font-small: 'Inter', sans-serif;
+    --font-size-big: 60px;
+    --font-size-medium: 40px;
+    --font-size-medium-tablet: 32px;
+    --font-size-small: 20px;
+    --color-button-outline-text: #000;
+    --color-button-solid-text: #000;
+    --color-button-outline-border: var(--color-gold);
+    --color-button-solid-background: var(--color-gold);
+    --color-button-solid-hover: #fff;
+    --color-button-outline-hover: #fff;
+    --color-button-solid-background-hover: var(--color-button-solid-background);
+    --color-button-outline-background-hover: var(--color-button-outline-border);
+    /*noinspection CssUnknownTarget*/
+    --theme-icon-path: url("./assets/svg/icon_sun.svg");
+    --theme-icon-size: 45px;
+}
+
+.header-wrapper {
+    --color-gold: #000;
+}
+
+.video-container .play-button {
+    --color-default: #fff;
+}
+
+header nav,
+section.hero,
+section.contacts,
+footer .container-footer {
+    --color-black: #000;
+    --color-default: #fff;
+}
+
+@media (max-width: 768px) {
+    .collapsable {
+        --color-black: #fff;
+        --color-default: #000;
+    }
+
+    .hamburger.active,
+    .active .hamburger{
+        --color-default: #000;
+    }
+}

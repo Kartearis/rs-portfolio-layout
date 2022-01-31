@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link id="theme" rel="stylesheet" href="./assets/themes/night.css">
     <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32x32.png">
@@ -16,7 +17,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="./assets/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <title>Portfolio</title>
+    <title data-translate-id="portfolio">Portfolio</title>
 </head>
 <body>
     <header>
@@ -26,14 +27,15 @@
                     <li class="nav-item nav-brand"><a href="#" class="nav-link"><span class="custom-icons brand"></span></a></li>
                     <li>
                         <ul class="collapsable" id="nav-collapsable">
-                            <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                            <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                            <li class="nav-item"><a href="#video" class="nav-link">Video</a></li>
-                            <li class="nav-item"><a href="#pricing" class="nav-link">Price</a></li>
-                            <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+                            <li class="nav-item"><a href="#skills" class="nav-link" data-translate-id="skills">Skills</a></li>
+                            <li class="nav-item"><a href="#portfolio" class="nav-link" data-translate-id="portfolio">Portfolio</a></li>
+                            <li class="nav-item"><a href="#video" class="nav-link" data-translate-id="video">Video</a></li>
+                            <li class="nav-item"><a href="#pricing" class="nav-link" data-translate-id="price">Price</a></li>
+                            <li class="nav-item"><a href="#contacts" class="nav-link" data-translate-id="contacts">Contacts</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item lang"><span class="clickable active">en</span><span class="lang-splitter">/</span><span class="clickable">ru</span></li>
+                    <li class="nav-item lang"><span class="clickable active" data-translation-tag="en">en</span><span class="lang-splitter">/</span><span class="clickable" data-translation-tag="ru">ru</span></li>
+                    <li class="nav-item"><span class="custom-icons theme-icon clickable"></span></li>
                     <li class="collapse-button" data-collapse-target="nav-collapsable"><div class="hamburger"></div></li>
                 </ul>
             </nav>
@@ -42,60 +44,60 @@
     <main>
         <div class="container container-flex">
             <section class="hero" id="hero">
-                <h1 class="section-title">Alexa Rise</h1>
-                <p>Save sincere emotions, romantic feelings and happy moments of life together with
+                <h1 class="section-title" data-translate-id="hero-title">Alexa Rise</h1>
+                <p data-translate-id="hero-text">Save sincere emotions, romantic feelings and happy moments of life together with
                     professional photographer Alexa Rise</p>
-                <button class="button-solid">Hire me</button>
+                <button class="button-solid ripple" data-translate-id="hire">Hire me</button>
             </section>
             <section class="section" id="skills">
                 <div class="header-wrapper">
-                    <h2 class="section-title">Skills</h2>
+                    <h2 class="section-title" data-translate-id="skills">Skills</h2>
                 </div>
                 <div class="skill-container">
                     <div class="skill-card">
                         <div class="svg-image camera"></div>
-                        <h3 class="skill-header">Digital photography</h3>
-                        <p class="skill-description">High-quality photos in the studio and on the nature</p>
+                        <h3 class="skill-header" data-translate-id="skill-title-1">Digital photography</h3>
+                        <p class="skill-description" data-translate-id="skill-text-1">High-quality photos in the studio and on the nature</p>
                     </div>
                     <div class="skill-card">
                         <div class="svg-image video"></div>
-                        <h3 class="skill-header">Video shooting</h3>
-                        <p class="skill-description">Capture your moments so that they always stay with you</p>
+                        <h3 class="skill-header" data-translate-id="skill-title-2">Video shooting</h3>
+                        <p class="skill-description" data-translate-id="skill-text-2">Capture your moments so that they always stay with you</p>
                     </div>
                     <div class="skill-card">
                         <div class="svg-image image"></div>
-                        <h3 class="skill-header">Retouch</h3>
-                        <p class="skill-description">I strive to make photography surpass reality</p>
+                        <h3 class="skill-header" data-translate-id="skill-title-3">Retouch</h3>
+                        <p class="skill-description" data-translate-id="skill-text-3">I strive to make photography surpass reality</p>
                     </div>
                     <div class="skill-card">
                         <div class="svg-image mic"></div>
-                        <h3 class="skill-header">Audio</h3>
-                        <p class="skill-description">Professional sounds recording for video, advertising, portfolio</p>
+                        <h3 class="skill-header" data-translate-id="skill-title-4">Audio</h3>
+                        <p class="skill-description" data-translate-id="skill-text-4">Professional sounds recording for video, advertising, portfolio</p>
                     </div>
                 </div>
             </section>
             <section class="section" id="portfolio">
                 <div class="header-wrapper">
-                    <h2 class="section-title">Portfolio</h2>
+                    <h2 class="section-title" data-translate-id="portfolio">Portfolio</h2>
                 </div>
                 <div class="button-container">
-                    <button class="button-outline">Winter</button>
-                    <button class="button-outline">Spring</button>
-                    <button class="button-outline">Summer</button>
-                    <button class="button-solid">Autumn</button>
+                    <button class="button-outline ripple" data-translate-id="winter" data-selector-id="winter">Winter</button>
+                    <button class="button-outline ripple" data-translate-id="spring" data-selector-id="spring">Spring</button>
+                    <button class="button-outline ripple" data-translate-id="summer" data-selector-id="summer">Summer</button>
+                    <button class="button-solid ripple" data-translate-id="autumn" data-selector-id="autumn">Autumn</button>
                 </div>
                 <div class="gallery-container">
-                    <img class="gallery-image" src="./assets/img/portfolio-img1.jpg" alt="A couple kissing">
-                    <img class="gallery-image" src="./assets/img/portfolio-img2.jpg" alt="A horse before dawn">
-                    <img class="gallery-image" src="./assets/img/portfolio-img3.jpg" alt="Autumn baby playing">
-                    <img class="gallery-image" src="./assets/img/portfolio-img4.jpg" alt="Forest hills">
-                    <img class="gallery-image" src="./assets/img/portfolio-img5.jpg" alt="Two elders laughing">
-                    <img class="gallery-image" src="./assets/img/portfolio-img6.jpg" alt="A girl making a photo of a leaf">
+                    <img class="gallery-image" src="./assets/img/autumn/1.jpg" alt="First image">
+                    <img class="gallery-image" src="./assets/img/autumn/2.jpg" alt="Second image">
+                    <img class="gallery-image" src="./assets/img/autumn/3.jpg" alt="Third image">
+                    <img class="gallery-image" src="./assets/img/autumn/4.jpg" alt="Another image">
+                    <img class="gallery-image" src="./assets/img/autumn/5.jpg" alt="One more image">
+                    <img class="gallery-image" src="./assets/img/autumn/6.jpg" alt="Last image">
                 </div>
             </section>
             <section class="section" id="video">
                 <div class="header-wrapper">
-                    <h2 class="section-title">Video</h2>
+                    <h2 class="section-title" data-translate-id="video">Video</h2>
                 </div>
                 <div class="video-container">
                     <img class="video-placeholder" src="./assets/img/video-player.jpg" alt="Video player preview">
@@ -104,55 +106,55 @@
             </section>
             <section class="section" id="pricing">
                 <div class="header-wrapper">
-                    <h2 class="section-title">Price</h2>
+                    <h2 class="section-title" data-translate-id="price">Price</h2>
                 </div>
                 <div class="price-container">
                     <div class="price-card">
                         <h3 class="price-header">Standard</h3>
-                        <p class="price-tag">500 $</p>
+                        <p class="price-tag" data-translation-price="500">500 $</p>
                         <ul class="price-description">
-                            <li>One location</li>
-                            <li>120 photos in color</li>
-                            <li>12 photos in retouch</li>
-                            <li>Readiness 2-3 weeks</li>
-                            <li>Make up, visage</li>
+                            <li data-translate-id="price-description-1-span-1">One location</li>
+                            <li data-translate-id="price-description-1-span-2">120 photos in color</li>
+                            <li data-translate-id="price-description-1-span-3">12 photos in retouch</li>
+                            <li data-translate-id="price-description-1-span-4">Readiness 2-3 weeks</li>
+                            <li data-translate-id="price-description-1-span-5">Make up, visage</li>
                         </ul>
-                        <button class="button-solid button-centered">Order shooting</button>
+                        <button class="button-solid button-centered ripple" data-translate-id="order">Order shooting</button>
                     </div>
                     <div class="price-card">
                         <h3 class="price-header">Premium</h3>
-                        <p class="price-tag">700 $</p>
+                        <p class="price-tag" data-translation-price="700">700 $</p>
                         <ul class="price-description">
-                            <li>One or two locations</li>
-                            <li>200 photos in color</li>
-                            <li>20 photos in retouch</li>
-                            <li>Readiness 1-2 weeks</li>
-                            <li>Make up, visage</li>
+                            <li data-translate-id="price-description-2-span-1">One or two locations</li>
+                            <li data-translate-id="price-description-2-span-2">200 photos in color</li>
+                            <li data-translate-id="price-description-2-span-3">20 photos in retouch</li>
+                            <li data-translate-id="price-description-2-span-4">Readiness 1-2 weeks</li>
+                            <li data-translate-id="price-description-2-span-5">Make up, visage</li>
                         </ul>
-                        <button class="button-solid button-centered">Order shooting</button>
+                        <button class="button-solid button-centered ripple" data-translate-id="order">Order shooting</button>
                     </div>
                     <div class="price-card">
                         <h3 class="price-header">Gold</h3>
-                        <p class="price-tag">1000 $</p>
+                        <p class="price-tag" data-translation-price="1000">1000 $</p>
                         <ul class="price-description">
-                            <li>Three locations or more</li>
-                            <li>300 photos in color</li>
-                            <li>50 photos in retouch</li>
-                            <li>Readiness 1 week</li>
-                            <li>Make up, visage, hairstyle</li>
+                            <li data-translate-id="price-description-3-span-1">Three locations or more</li>
+                            <li data-translate-id="price-description-3-span-2">300 photos in color</li>
+                            <li data-translate-id="price-description-3-span-3">50 photos in retouch</li>
+                            <li data-translate-id="price-description-3-span-4">Readiness 1 week</li>
+                            <li data-translate-id="price-description-3-span-5">Make up, visage, hairstyle</li>
                         </ul>
-                        <button class="button-solid button-centered">Order shooting</button>
+                        <button class="button-solid button-centered ripple" data-translate-id="order">Order shooting</button>
                     </div>
                 </div>
             </section>
             <section class="section contacts" id="contacts">
                 <div class="contacts-form-container">
-                    <h2 class="section-title">Contact me</h2>
+                    <h2 class="section-title" data-translate-id="contact-me">Contact me</h2>
                     <form class="contacts-form" onsubmit="">
                         <input class="input" placeholder="E-mail" type="email">
                         <input class="input" placeholder="Phone" type="tel">
                         <textarea class="input textarea" placeholder="Message"></textarea>
-                        <button class="button-solid contacts-button">Send message</button>
+                        <button class="button-solid contacts-button ripple" data-translate-id="send-message">Send message</button>
                     </form>
                 </div>
             </section>
@@ -174,6 +176,6 @@
             </ul>
         </div>
     </footer>
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
 </body>
 </html>
