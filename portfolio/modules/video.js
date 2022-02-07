@@ -31,9 +31,12 @@ const controlsMarkup = `
     </div>
 `;
 
-const centeredButton = `
+const centeredButtons = `
+    <button class="hidden custom-icons back clickable"></button>
     <button class="custom-icons play play-button"></button>
+    <button class="hidden custom-icons forward clickable"></button>
 `;
+
 
 // Depends on slider value being between 0 and 100
 function finishSliderStyling(slider) {
@@ -50,6 +53,8 @@ class VideoControl {
     volumeBar = null;
     playButton = null;
     bigPlayButton = null;
+    backButton = null;
+    forwardButton = null;
     fullscreenButton = null;
     controls = null;
     container = null;
@@ -72,7 +77,7 @@ class VideoControl {
         }
     });
 
-    constructor(video, container, controls, progressBar, volumeBar, volumeButton, playButton, bigPlayButton, fullscreenButton) {
+    constructor(video, container, controls, progressBar, volumeBar, volumeButton, playButton, bigPlayButton, fullscreenButton, backButton, forwardButton) {
         this.video = video;
         this.container = container;
         this.controls = controls;
@@ -83,11 +88,15 @@ class VideoControl {
         this.playButton = playButton;
         this.bigPlayButton = bigPlayButton;
         this.fullscreenButton = fullscreenButton;
+        this.backButton = backButton;
+        this.forwardButton = forwardButton;
         this.audio.handlers['currentVolume'].push(this.syncVolume, this.updateVolumeIcon);
         this.audio.handlers['muted'].push(this.syncVolume, this.updateVolumeIcon);
 
         this.bigPlayButton.addEventListener('click', this.togglePlayback);
         this.bigPlayButton.addEventListener('click', this.showControls, {'once': true});
+        this.backButton.addEventListener('click', this.backward);
+        this.forwardButton.addEventListener('click', this.forward);
         this.playButton.addEventListener('click', this.togglePlayback);
         this.volumeButton.addEventListener('click', this.mute);
         this.volumeBar.addEventListener('input', this.setVolume);
@@ -124,6 +133,7 @@ class VideoControl {
     }
 
     showControls = () => {
+        this.container.classList.remove('some-buttons-hidden');
         this.controls.classList.remove('hidden');
     }
 
@@ -189,6 +199,18 @@ class VideoControl {
         this.video.currentTime = event.target.value;
     }
 
+    forward = () => {
+        if (this.video.currentTime < this.video.duration - 5)
+            this.video.currentTime += 5;
+        else this.video.currentTime = this.video.duration;
+    }
+
+    backward = () => {
+        if (this.video.currentTime > 5)
+            this.video.currentTime -= 5;
+        else this.video.currentTime = 0;
+    }
+
     updateProgress = event => {
         this.progressBar.value = this.video.currentTime;
         this.progressBar.dispatchEvent(new Event('progChange', {bubbles:true}));
@@ -204,7 +226,8 @@ class VideoControl {
 
 export function setupCustomControls(videoContainer) {
     videoContainer.classList.add("disable-transitions");
-    videoContainer.insertAdjacentHTML('beforeend', centeredButton);
+    videoContainer.classList.add("some-buttons-hidden");
+    videoContainer.insertAdjacentHTML('beforeend', centeredButtons);
     videoContainer.insertAdjacentHTML('beforeend', controlsMarkup);
     window.addEventListener('load', () => videoContainer.classList.remove('disable-transitions'));
     videoContainer.querySelectorAll('.video-range').forEach(el => finishSliderStyling(el));
@@ -215,7 +238,8 @@ export function setupCustomControls(videoContainer) {
     let volumeBar = videoContainer.querySelector(".video-range.volume");
     let videoControl = new VideoControl(videoContainer.querySelector("video"), videoContainer,
         videoContainer.querySelector('.video-controls'), progress, volumeBar,
-        volumeButton, playButton, bigPlayButton, videoContainer.querySelector(".video-fullscreen"));
+        volumeButton, playButton, bigPlayButton, videoContainer.querySelector(".video-fullscreen"),
+        videoContainer.querySelector(".back"), videoContainer.querySelector(".forward"));
     volumeBar.value = 0.5;
     volumeBar.dispatchEvent(new Event('input', {bubbles:true}));
     return videoControl;

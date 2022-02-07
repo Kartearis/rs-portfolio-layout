@@ -24,6 +24,43 @@
     left: calc(50% - calc(130px / 2));
 }
 
+.some-buttons-hidden .forward,
+.some-buttons-hidden .back {
+    display: none;
+}
+
+.custom-video .back,
+.custom-video .forward{
+    position: absolute;
+    height: 50%;
+    width: 25%;
+    top: 25%;
+    left: 0;
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+    transition: opacity 0.5s, transform 0.3s;
+}
+
+.custom-video .forward {
+    left: 75%;
+}
+
+.custom-video .back.hidden,
+.custom-video .forward.hidden {
+    opacity: 0;
+}
+
+.custom-video .back:hover,
+.custom-video .forward:hover {
+    opacity: 0.8;
+}
+
+.custom-video .back:active,
+.custom-video .forward:active {
+    transform: scale(0.8);
+}
+
+
 @media (max-width: 768px) {
     .custom-video .play-button {
         top: calc(50% - calc(64.5px / 2));
@@ -86,6 +123,7 @@
 .custom-icons.video-play {
     width: 23px;
     height: 30px;
+    margin-left: 13px;
     --icon-path: url("/portfolio/modules/module-assets/video/play.svg");
 }
 
@@ -109,9 +147,18 @@
     --icon-path: url("/portfolio/modules/module-assets/video/fullscreen_shrink.svg");
 }
 
+.custom-icons.back{
+    --icon-path: url("/portfolio/modules/module-assets/video/left-arrow.svg");
+}
+
+.custom-icons.forward{
+    --icon-path: url("/portfolio/modules/module-assets/video/right-arrow.svg");
+}
+
 .custom-icons.video-play.playing {
     width: 36px;
     height: 36px;
+    margin-left: 0;
     --icon-path: url("/portfolio/modules/module-assets/video/pause.svg");
 }
 
