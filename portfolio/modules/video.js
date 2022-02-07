@@ -50,6 +50,11 @@ class VideoControl {
     playButton = null;
     bigPlayButton = null;
     controls = null;
+    container = null;
+
+    // Controls hidden due to inactivity
+    controlsHidden = false;
+    timeout = null;
     audio = new Proxy({
         'muted': false,
         'currentVolume': 0,
@@ -65,8 +70,9 @@ class VideoControl {
         }
     });
 
-    constructor(video, controls, progressBar, volumeBar, volumeButton, playButton, bigPlayButton) {
+    constructor(video, container, controls, progressBar, volumeBar, volumeButton, playButton, bigPlayButton) {
         this.video = video;
+        this.container = container;
         this.controls = controls;
         this.video.controls = false;
         this.progressBar = progressBar;
@@ -83,6 +89,9 @@ class VideoControl {
         this.volumeButton.addEventListener('click', this.mute);
         this.volumeBar.addEventListener('input', this.setVolume);
         this.progressBar.addEventListener('input', this.setProgress);
+        this.container.addEventListener('mousemove', this.userActivity);
+        this.container.addEventListener('click', this.userActivity);
+        this.container.addEventListener('keydown', this.userActivity);
 
         this.setupVideoEvents();
     }
@@ -94,7 +103,21 @@ class VideoControl {
         this.video.addEventListener('loadedmetadata', event => this.progressBar.max = Math.round(this.video.duration));
     }
 
-    showControls = event => {
+    userActivity = () => {
+        if (this.controlsHidden) {
+            this.controlsHidden = false;
+            this.showControls();
+        }
+        clearTimeout(this.timeout);
+        this.timeout = setTimeout(this.hideControlsByInactivity, 5000);
+    }
+
+    hideControlsByInactivity = () => {
+        this.controlsHidden = true;
+        this.controls.classList.add("hidden");
+    }
+
+    showControls = () => {
         this.controls.classList.remove('hidden');
     }
 
@@ -153,15 +176,17 @@ class VideoControl {
 
 
 export function setupCustomControls(videoContainer) {
+    videoContainer.classList.add("disable-transitions");
     videoContainer.insertAdjacentHTML('beforeend', centeredButton);
     videoContainer.insertAdjacentHTML('beforeend', controlsMarkup);
+    window.addEventListener('load', () => videoContainer.classList.remove('disable-transitions'));
     videoContainer.querySelectorAll('.video-range').forEach(el => finishSliderStyling(el));
     let progress = videoContainer.querySelector(".video-range.progress");
     let volumeButton = videoContainer.querySelector(".video-volume");
     let playButton = videoContainer.querySelector(".video-play");
     let bigPlayButton = videoContainer.querySelector(".play-button");
     let volumeBar = videoContainer.querySelector(".video-range.volume");
-    let videoControl = new VideoControl(videoContainer.querySelector("video"), videoContainer.querySelector('.video-controls'), progress, volumeBar, volumeButton, playButton, bigPlayButton);
+    let videoControl = new VideoControl(videoContainer.querySelector("video"), videoContainer, videoContainer.querySelector('.video-controls'), progress, volumeBar, volumeButton, playButton, bigPlayButton);
     volumeBar.value = 0.5;
     volumeBar.dispatchEvent(new Event('input', {bubbles:true}));
     return videoControl;
