@@ -21,7 +21,7 @@ const controlsMarkup = `
     <div class="video-controls hidden">
         <div class="control-group playback">
             <button class="custom-icons clickable video-play video-button"></button>
-            <input class="video-range progress" type="range" min="0" max="100" step="0.5" value="0">
+            <input class="video-range progress" type="range" min="0" max="59" step="0.5" value="0">
         </div>
         <div class="control-group volume">
             <button class="custom-icons clickable video-volume video-button"></button>
@@ -37,8 +37,6 @@ const centeredButtons = `
     <button class="hidden custom-icons forward clickable"></button>
 `;
 
-
-// Depends on slider value being between 0 and 100
 function finishSliderStyling(slider) {
     let calcProgress = event => event.target.value / (event.target.max - event.target.min) * 100;
     slider.style.setProperty('--current-progress', calcProgress({'target': slider}) + '%')

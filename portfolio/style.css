@@ -1022,4 +1022,23 @@ input:-webkit-autofill:active {
     height: 32px;
 }
 
+.logo-container {
+    background-color: #F8F6F1;
+    transition: 0.3s;
+}
+
+.logo-container:hover {
+    transform: scale(1.1);
+    background-color: var(--color-gold);
+    transition: 0.3s;
+}
+
+.rss-svg-logo {
+    display: inline-block;
+    height: 55.5px;
+    width: 150px;
+    background: url("./assets/svg/rs_school_js.svg") no-repeat;
+    transition: 0.3s;
+}
+
 
