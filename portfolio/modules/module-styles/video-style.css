@@ -21,6 +21,10 @@
     }
 }
 
+.custom-video .play-button.playing {
+    opacity: 0;
+}
+
 .video-controls {
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
@@ -70,6 +74,16 @@
     --icon-path: url("/portfolio/modules/module-assets/video/volume.svg");
 }
 
+.custom-icons.video-volume.muted{
+    --icon-path: url("/portfolio/modules/module-assets/video/mute.svg");
+}
+
+.custom-icons.video-play.playing {
+    width: 36px;
+    height: 36px;
+    --icon-path: url("/portfolio/modules/module-assets/video/pause.svg");
+}
+
 .video-button {
     background-color: var(--color-white);
 }
@@ -100,6 +114,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
+    border: 1px solid darkgray;
     -webkit-appearance: none;
     cursor: ew-resize;
     background-color: var(--color-white);
