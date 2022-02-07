@@ -8,6 +8,12 @@
     --color-black: #000;
 }
 
+.custom-video:fullscreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .disable-transitions * {
     transition: none !important;
 }
@@ -91,6 +97,16 @@
 
 .custom-icons.video-volume.muted{
     --icon-path: url("/portfolio/modules/module-assets/video/mute.svg");
+}
+
+.custom-icons.video-fullscreen {
+    width: 32px;
+    height: 32px;
+    --icon-path: url("/portfolio/modules/module-assets/video/fullscreen_enlarge.svg");
+}
+
+.custom-icons.video-fullscreen.enlarged{
+    --icon-path: url("/portfolio/modules/module-assets/video/fullscreen_shrink.svg");
 }
 
 .custom-icons.video-play.playing {

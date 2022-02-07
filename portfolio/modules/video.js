@@ -27,6 +27,7 @@ const controlsMarkup = `
             <button class="custom-icons clickable video-volume video-button"></button>
             <input class="video-range volume" type="range" min="0" max="1" step="0.1" value="0">
         </div>
+        <button class="custom-icons clickable video-button video-fullscreen"></button>
     </div>
 `;
 
@@ -49,6 +50,7 @@ class VideoControl {
     volumeBar = null;
     playButton = null;
     bigPlayButton = null;
+    fullscreenButton = null;
     controls = null;
     container = null;
 
@@ -70,7 +72,7 @@ class VideoControl {
         }
     });
 
-    constructor(video, container, controls, progressBar, volumeBar, volumeButton, playButton, bigPlayButton) {
+    constructor(video, container, controls, progressBar, volumeBar, volumeButton, playButton, bigPlayButton, fullscreenButton) {
         this.video = video;
         this.container = container;
         this.controls = controls;
@@ -80,6 +82,7 @@ class VideoControl {
         this.volumeBar = volumeBar;
         this.playButton = playButton;
         this.bigPlayButton = bigPlayButton;
+        this.fullscreenButton = fullscreenButton;
         this.audio.handlers['currentVolume'].push(this.syncVolume, this.updateVolumeIcon);
         this.audio.handlers['muted'].push(this.syncVolume, this.updateVolumeIcon);
 
@@ -92,6 +95,9 @@ class VideoControl {
         this.container.addEventListener('mousemove', this.userActivity);
         this.container.addEventListener('click', this.userActivity);
         this.container.addEventListener('keydown', this.userActivity);
+        this.container.addEventListener('fullscreenchange', this.updateFullscreenIcon);
+        this.fullscreenButton.addEventListener('click', this.toggleFullscreen);
+
 
         this.setupVideoEvents();
     }
@@ -127,6 +133,27 @@ class VideoControl {
         } else {
             this.video.pause();
         }
+    }
+
+    toggleFullscreen = async () => {
+        if (document.fullscreenElement) {
+            if (document.exitFullscreen) {
+                await document.exitFullscreen();
+
+            }
+        }
+        else {
+            if (this.container.requestFullscreen) {
+                await this.container.requestFullscreen();
+            }
+        }
+        this.updateFullscreenIcon();
+    }
+
+    updateFullscreenIcon = () => {
+        if (document.fullscreenElement)
+            this.fullscreenButton.classList.add("enlarged");
+        else this.fullscreenButton.classList.remove("enlarged");
     }
 
     syncVolume = () => {
@@ -186,7 +213,9 @@ export function setupCustomControls(videoContainer) {
     let playButton = videoContainer.querySelector(".video-play");
     let bigPlayButton = videoContainer.querySelector(".play-button");
     let volumeBar = videoContainer.querySelector(".video-range.volume");
-    let videoControl = new VideoControl(videoContainer.querySelector("video"), videoContainer, videoContainer.querySelector('.video-controls'), progress, volumeBar, volumeButton, playButton, bigPlayButton);
+    let videoControl = new VideoControl(videoContainer.querySelector("video"), videoContainer,
+        videoContainer.querySelector('.video-controls'), progress, volumeBar,
+        volumeButton, playButton, bigPlayButton, videoContainer.querySelector(".video-fullscreen"));
     volumeBar.value = 0.5;
     volumeBar.dispatchEvent(new Event('input', {bubbles:true}));
     return videoControl;
