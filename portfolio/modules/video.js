@@ -23,7 +23,7 @@ const controlsMarkup = `
             <button class="custom-icons clickable video-play video-button"></button>
             <input class="video-range progress" type="range" min="0" max="100" value="0">
         </div>
-        <div class="control-group">
+        <div class="control-group volume">
             <button class="custom-icons clickable video-volume video-button"></button>
             <input class="video-range" type="range" min="0" max="1" step="0.1" value="0">
         </div>
