@@ -38,6 +38,11 @@
     width: 100%;
     height: 50px;
 }
+
+.video-controls.hidden {
+    display: none;
+}
+
 .video-controls .control-group {
     display: flex;
     flex-direction: row;
@@ -86,6 +91,8 @@
 
 .video-button {
     background-color: var(--color-white);
+    flex-shrink: 0;
+    border: none;
 }
 
 .video-range {
