@@ -1,6 +1,7 @@
 
 import * as Translation from './modules/translate.js';
 import './modules/effects.js';
+import './modules/video.js';
 const storage = window.localStorage;
 
 console.log(`

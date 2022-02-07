@@ -100,8 +100,13 @@
                     <h2 class="section-title" data-translate-id="video">Video</h2>
                 </div>
                 <div class="video-container">
-                    <img class="video-placeholder" src="./assets/img/video-player.jpg" alt="Video player preview">
-                    <button class="custom-icons play play-button"></button>
+                    <div class="custom-video">
+                        <video controls class="video" preload="metadata" poster="./assets/img/video-player.jpg">
+                            <source src="./assets/video/video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+<!--                    <img class="video-placeholder" src="./assets/img/video-player.jpg" alt="Video player preview">-->
+<!--                    <button class="custom-icons play play-button"></button>-->
                 </div>
             </section>
             <section class="section" id="pricing">
