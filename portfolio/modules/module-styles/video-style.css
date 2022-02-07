@@ -124,42 +124,42 @@
     width: 23px;
     height: 30px;
     margin-left: 13px;
-    --icon-path: url("/portfolio/modules/module-assets/video/play.svg");
+    --icon-path: url("./modules/module-assets/video/play.svg");
 }
 
 .custom-icons.video-volume {
     width: 36px;
     height: 36px;
-    --icon-path: url("/portfolio/modules/module-assets/video/volume.svg");
+    --icon-path: url("./modules/module-assets/video/volume.svg");
 }
 
 .custom-icons.video-volume.muted{
-    --icon-path: url("/portfolio/modules/module-assets/video/mute.svg");
+    --icon-path: url("./modules/module-assets/video/mute.svg");
 }
 
 .custom-icons.video-fullscreen {
     width: 32px;
     height: 32px;
-    --icon-path: url("/portfolio/modules/module-assets/video/fullscreen_enlarge.svg");
+    --icon-path: url("./modules/module-assets/video/fullscreen_enlarge.svg");
 }
 
 .custom-icons.video-fullscreen.enlarged{
-    --icon-path: url("/portfolio/modules/module-assets/video/fullscreen_shrink.svg");
+    --icon-path: url("./modules/module-assets/video/fullscreen_shrink.svg");
 }
 
 .custom-icons.back{
-    --icon-path: url("/portfolio/modules/module-assets/video/left-arrow.svg");
+    --icon-path: url("./modules/module-assets/video/left-arrow.svg");
 }
 
 .custom-icons.forward{
-    --icon-path: url("/portfolio/modules/module-assets/video/right-arrow.svg");
+    --icon-path: url("./modules/module-assets/video/right-arrow.svg");
 }
 
 .custom-icons.video-play.playing {
     width: 36px;
     height: 36px;
     margin-left: 0;
-    --icon-path: url("/portfolio/modules/module-assets/video/pause.svg");
+    --icon-path: url("./modules/module-assets/video/pause.svg");
 }
 
 .video-button {
