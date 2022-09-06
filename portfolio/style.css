@@ -76,36 +76,33 @@ body {
     height: 50px;
     background-color: var(--color-default);
     transition: filter 0.3s, transform 0.3s;
+    --icon-path: black;
+    -webkit-mask: var(--icon-path) 50% 50%/contain no-repeat;
+    mask: var(--icon-path) 50% 50%/contain no-repeat;
 }
 
 .custom-icons.brand {
-    -webkit-mask: url("./assets/svg/logo_unvisited.svg") 50% 50%/contain no-repeat;
-    mask: url("./assets/svg/logo_unvisited.svg") 50% 50%/contain no-repeat;
+    --icon-path: url("./assets/svg/logo_unvisited.svg");
 }
 
 .custom-icons.play {
-    -webkit-mask: url("./assets/svg/Play_Unvisited.svg") 50% 50%/contain no-repeat;
-    mask: url("./assets/svg/Play_Unvisited.svg") 50% 50%/contain no-repeat;
+    --icon-path: url("./assets/svg/Play_Unvisited.svg");
 }
 
 .custom-icons.instagram {
-    -webkit-mask: url("./assets/svg/inst 1.svg") 50% 50%/contain no-repeat;
-    mask: url("./assets/svg/inst 1.svg") 50% 50%/contain no-repeat;
+    --icon-path: url("./assets/svg/inst 1.svg");
 }
 
 .custom-icons.twitter {
-    -webkit-mask: url("./assets/svg/tw 1.svg") 50% 50%/contain no-repeat;
-    mask: url("./assets/svg/tw 1.svg") 50% 50%/contain no-repeat;
+    --icon-path: url("./assets/svg/tw 1.svg");
 }
 
 .custom-icons.pinterest {
-    -webkit-mask: url("./assets/svg/pinterest 1.svg") 50% 50%/contain no-repeat;
-    mask: url("./assets/svg/pinterest 1.svg") 50% 50%/contain no-repeat;
+    --icon-path: url("./assets/svg/pinterest 1.svg");
 }
 
 .custom-icons.facebook {
-    -webkit-mask: url("./assets/svg/fb 1.svg") 50% 50%/contain no-repeat;
-    mask: url("./assets/svg/fb 1.svg") 50% 50%/contain no-repeat;
+    --icon-path: url("./assets/svg/fb 1.svg");
 }
 
 .custom-icons.theme-icon {
@@ -114,8 +111,7 @@ body {
     vertical-align: middle;
     margin-right: -15.5px;
     margin-left: calc(15px + calc(45px - var(--theme-icon-size)));
-    -webkit-mask: var(--theme-icon-path) 50% 50%/contain no-repeat;
-    mask: var(--theme-icon-path) 50% 50%/contain no-repeat;
+    --icon-path: var(--theme-icon-path);
 }
 
 @media (max-width: 768px) {
@@ -1024,6 +1020,25 @@ input:-webkit-autofill:active {
 .custom-icons.small {
     width: 32px;
     height: 32px;
+}
+
+.logo-container {
+    background-color: #F8F6F1;
+    transition: 0.3s;
+}
+
+.logo-container:hover {
+    transform: scale(1.1);
+    background-color: var(--color-gold);
+    transition: 0.3s;
+}
+
+.rss-svg-logo {
+    display: inline-block;
+    height: 55.5px;
+    width: 150px;
+    background: url("./assets/svg/rs_school_js.svg") no-repeat;
+    transition: 0.3s;
 }
 
 

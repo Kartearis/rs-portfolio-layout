@@ -1,0 +1,202 @@
+
+.custom-video {
+    width: 100%;
+    position: relative;
+    height: fit-content;
+    --color-gold: #BDAE82;
+    --color-white: #fff;
+    --color-black: #000;
+}
+
+.custom-video:fullscreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.disable-transitions * {
+    transition: none !important;
+}
+
+.custom-video .play-button {
+    position: absolute;
+    top: calc(50% - calc(130px / 2));
+    left: calc(50% - calc(130px / 2));
+}
+
+.some-buttons-hidden .forward,
+.some-buttons-hidden .back {
+    display: none;
+}
+
+.custom-video .back,
+.custom-video .forward{
+    position: absolute;
+    height: 50%;
+    width: 25%;
+    top: 25%;
+    left: 0;
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+    transition: opacity 0.5s, transform 0.3s;
+}
+
+.custom-video .forward {
+    left: 75%;
+}
+
+.custom-video .back.hidden,
+.custom-video .forward.hidden {
+    opacity: 0;
+}
+
+.custom-video .back:hover,
+.custom-video .forward:hover {
+    opacity: 0.8;
+}
+
+.custom-video .back:active,
+.custom-video .forward:active {
+    transform: scale(0.8);
+}
+
+
+@media (max-width: 768px) {
+    .custom-video .play-button {
+        top: calc(50% - calc(64.5px / 2));
+        left: calc(50% - calc(64.5px / 2));
+    }
+}
+
+
+.custom-video .play-button.playing {
+    opacity: 0;
+    width: 50%;
+    height: 80%;
+    top: 10%;
+    left: 25%;
+}
+
+.video-controls {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px 5px 20px;
+    bottom: 0;
+    gap: 40px;
+    width: 100%;
+    height: 50px;
+    transition: opacity 0.5s;
+}
+
+.video-controls.hidden {
+    opacity: 0;
+}
+
+.video-controls .control-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+}
+
+.custom-video .video {
+    width: 100%;
+    display: block;
+}
+
+.custom-video .video:fullscreen {
+    max-width: none;
+    width: 100%;
+}
+
+.custom-video .video:-webkit-full-screen {
+    max-width: none;
+    width: 100%;
+}
+
+.custom-icons.video-play {
+    width: 23px;
+    height: 30px;
+    margin-left: 13px;
+    --icon-path: url("./modules/module-assets/video/play.svg");
+}
+
+.custom-icons.video-volume {
+    width: 36px;
+    height: 36px;
+    --icon-path: url("./modules/module-assets/video/volume.svg");
+}
+
+.custom-icons.video-volume.muted{
+    --icon-path: url("./modules/module-assets/video/mute.svg");
+}
+
+.custom-icons.video-fullscreen {
+    width: 32px;
+    height: 32px;
+    --icon-path: url("./modules/module-assets/video/fullscreen_enlarge.svg");
+}
+
+.custom-icons.video-fullscreen.enlarged{
+    --icon-path: url("./modules/module-assets/video/fullscreen_shrink.svg");
+}
+
+.custom-icons.back{
+    --icon-path: url("./modules/module-assets/video/left-arrow.svg");
+}
+
+.custom-icons.forward{
+    --icon-path: url("./modules/module-assets/video/right-arrow.svg");
+}
+
+.custom-icons.video-play.playing {
+    width: 36px;
+    height: 36px;
+    margin-left: 0;
+    --icon-path: url("./modules/module-assets/video/pause.svg");
+}
+
+.video-button {
+    background-color: var(--color-white);
+    flex-shrink: 0;
+    border: none;
+}
+
+.video-range {
+    --current-progress: 40%;
+    background: linear-gradient(to right, var(--color-gold) 0%, var(--color-gold) var(--current-progress), var(--color-white) var(--current-progress), var(--color-white) 100%);
+    /*border: solid 2px #82CFD0;*/
+    border-radius: 8px;
+    height: 10px;
+    outline: none;
+    transition: background 450ms ease-in;
+    -webkit-appearance: none;
+    flex-basis: 400px;
+    flex-grow: 1;
+    width: 30px;
+}
+
+.control-group.playback {
+    flex-grow: 3;
+}
+
+.control-group.volume {
+    flex-grow: 1;
+}
+
+.video-range::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid darkgray;
+    -webkit-appearance: none;
+    cursor: ew-resize;
+    background-color: var(--color-white);
+}
+

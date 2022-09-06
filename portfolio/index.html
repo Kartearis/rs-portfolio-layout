@@ -100,8 +100,13 @@
                     <h2 class="section-title" data-translate-id="video">Video</h2>
                 </div>
                 <div class="video-container">
-                    <img class="video-placeholder" src="./assets/img/video-player.jpg" alt="Video player preview">
-                    <button class="custom-icons play play-button"></button>
+                    <div class="custom-video">
+                        <video controls class="video" preload="metadata" poster="./assets/img/video-player.jpg">
+                            <source src="./assets/video/video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+<!--                    <img class="video-placeholder" src="./assets/img/video-player.jpg" alt="Video player preview">-->
+<!--                    <button class="custom-icons play play-button"></button>-->
                 </div>
             </section>
             <section class="section" id="pricing">
@@ -167,7 +172,12 @@
                 <div>2022</div>
                 <div><a href="https://github.com/Kartearis">github</a></div>
             </div>
-            <div class="rs-link-container"><a href="https://rs.school/js-stage0/">Rolling Scopes School</a></div>
+            <div class="rs-link-container">
+                <div class="data-container logo-container">
+                    <a href="https://rs.school/js/" class="rss-svg-logo">
+                    </a>
+                </div>
+            </div>
             <ul class="social-networks">
                 <li><a href="#" class="custom-icons instagram small clickable"></a></li>
                 <li><a href="#" class="custom-icons facebook small clickable"></a></li>
